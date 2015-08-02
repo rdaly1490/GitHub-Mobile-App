@@ -17,11 +17,12 @@ class Badge extends React.Component{
 			</View>
 		);
 	}
-	//will verify that certain props are there or are a certain type
-	//need userinfo, it will be an object, and it is required
-	Badge.propTypes = {
-		userInfo: React.PropTypes.object.isRequired
-	}
+}
+
+//will verify that certain props are there or are a certain type
+//need userinfo, it will be an object, and it is required
+Badge.propTypes = {
+	userInfo: React.PropTypes.object.isRequired
 }
 
 var styles = StyleSheet.create({
