@@ -13,6 +13,21 @@ var api = {
 				//res.json returns another promise so need then again
 				//=> keeps context of parent element so dont need to bind this or do that=this
 				.then((res) => res.json());
+	},
+	getNotes(username){
+		//react-native doesn't support web sockets so use firebases restful api
+		username = username.toLowerCase().trim();
+		var url = https://github-app.firebaseio.com/${username}.json;
+		return fetch(url)
+				.then((res) => res.json());
+	},
+	addNote(username, note){
+		username = username.toLowerCase().trim();
+		var url = https://github-app.firebaseio.com/${username}.json;
+		return fetch(url, {
+			method: "post",
+			body: JSON.stringify(note)
+		}).then((res) => res.json());
 	}
 };
 

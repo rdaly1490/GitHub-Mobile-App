@@ -41,6 +41,8 @@ class Dashboard extends React.Component{
 		});
 	}
 	goToRepos(){
+		//call function from api file pssing in login (username)
+		//getRepos function fetches from the /repos endpoint to retrieve them
 		api.getRepos(this.props.userInfo.login)
 			.then((res) => {
 				this.props.navigator.push({
