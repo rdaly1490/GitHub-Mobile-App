@@ -1,5 +1,6 @@
 var React = require("react-native");
 var Badge = require("./Badge");
+var Seperator = require("./Helpers/Seperator");
 
 var {
 	Text,
@@ -27,10 +28,13 @@ class Profile extends React.Component{
 				return <View key={index}></View>
 			}else {
 				return(
-					<View key={index}>
-						<Text style={styles.rowTitle}>{this.getRowTitle(userInfo, item)}</Text>
-						<Text style={styles.rowContent}>{userInfo[item]}</Text>
-					</View>
+		          <View key={index}>
+		            <View style={styles.rowContainer}>
+		              <Text style={styles.rowTitle}> {this.getRowTitle(userInfo, item)} </Text>
+		              <Text style={styles.rowContent}> {userInfo[item]} </Text>
+		            </View>
+		            <Seperator />
+		          </View>
 				);
 			}
 		});
@@ -41,7 +45,11 @@ class Profile extends React.Component{
 			</ScrollView>
 		);
 	}
-}
+};
+
+Profile.propTypes = {
+  userInfo: React.PropTypes.object.isRequired
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -57,15 +65,10 @@ var styles = StyleSheet.create({
   },
   rowTitle: {
     color: '#48BBEC',
-    marginTop: 12,
-    marginBottom: 4,
     fontSize: 16
-    // alignSelf: 'center'
   },
   rowContent: {
-    fontSize: 19,
-    marginBottom: 8
-    // alignSelf: 'center'
+    fontSize: 19
   }
 });
 
