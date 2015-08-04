@@ -17,13 +17,13 @@ var api = {
 	getNotes(username){
 		//react-native doesn't support web sockets so use firebases restful api
 		username = username.toLowerCase().trim();
-		var url = https://github-app.firebaseio.com/${username}.json;
+		var url = `https://github-app.firebaseio.com/${username}.json`;
 		return fetch(url)
 				.then((res) => res.json());
 	},
 	addNote(username, note){
 		username = username.toLowerCase().trim();
-		var url = https://github-app.firebaseio.com/${username}.json;
+		var url = `https://github-app.firebaseio.com/${username}.json`;
 		return fetch(url, {
 			method: "post",
 			body: JSON.stringify(note)
