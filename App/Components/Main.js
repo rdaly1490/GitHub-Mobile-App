@@ -61,7 +61,7 @@ class Main extends React.Component{
 	render() {
 
 		var showErr = (
-			this.state.error ? <Text>{this.state.error}</Text> : <View></View>
+			this.state.error ? <View style={styles.error}><Text style={styles.errorColor}>{this.state.error}</Text></View> : <View></View>
 		);
 		return(
 			<View style={styles.mainContainer}>
@@ -76,10 +76,12 @@ class Main extends React.Component{
 					underlayColor="white">
 						<Text style={styles.buttonText}>SEARCH</Text>
 				</TouchableHighlight>
+				<View style={styles.error}>
 				<ActivityIndicatorIOS
+					style={styles.loading}
 					animating={this.state.isLoading}
-					color="#111"
-					size="large"></ActivityIndicatorIOS>
+					color="#fff"
+					size="large"></ActivityIndicatorIOS></View>
 				{showErr}
 			</View>
 		);
@@ -93,7 +95,7 @@ var styles = StyleSheet.create({
     marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#48BBEC'
+    backgroundColor: '#22253E'
   },
   title: {
     marginBottom: 20,
@@ -128,6 +130,13 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
+  error: {
+  	alignItems: 'center',
+    justifyContent: 'center'
+  },
+  errorColor: {
+  	color: "white"
+  }
 });
 
 module.exports = Main;

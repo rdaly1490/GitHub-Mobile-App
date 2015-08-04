@@ -23,11 +23,11 @@ class Dashboard extends React.Component{
 		}
 
 		if (btn === 0){
-			obj.backgroundColor = "#48BBEC"
+			obj.backgroundColor = "#22253E"
 		}else if (btn === 1){
-			obj.backgroundColor = "#E77AAE"
+			obj.backgroundColor = "#AF3036"
 		}else{
-			obj.backgroundColor = "#758BF4"
+			obj.backgroundColor = "#E85A45"
 		}
 
 		return obj
